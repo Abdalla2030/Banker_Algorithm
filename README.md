@@ -1,5 +1,5 @@
 # Banker_Algorithm
-Advanced Operating Systems (CS342) - Assignment(1) - Chapter(7) - Deadlock
+Advanced Operating Systems (CS342) - Assignment(01) - Chapter(07) - Deadlock
 
 It is needed to be familiar with the Deadlock problem and how to solve it. Therefore, it is
 required to apply the deadlock avoidance algorithms by applying the Banker's algorithm.
