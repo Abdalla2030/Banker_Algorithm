@@ -9,10 +9,15 @@ state. A request is denied if it leaves the system in an unsafe state.
 The bank will employ the strategy outlined in the textbook & lectures whereby it will
 consider requests from n processes for m resources. The bank will keep track of the
 resources using the following data structures:
+
 int [] available; //the available amount of each resource
+
 int [][] maximum; //the maximum demand of each process
+
 int [][] allocation; //the amount currently allocated to each process
+
 int [][] need; //the remaining needs of each process
+
 You should build a test program to test your code. The test program should take the initial
 number of the available resources at the bank, the maximum need, and the actually
 allocated resources for each process. Your program should calculate the need matrix as
