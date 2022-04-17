@@ -123,6 +123,7 @@ public class Deadlock {
                 safeStateSequence = safeStateSequence.substring(0, safeStateSequence.length() - 1);
                 safeStateSequence = safeStateSequence.substring(0, safeStateSequence.length() - 1);
                 System.out.println(safeStateSequence);
+                System.out.println("=========================");
                 b = true ;
                 break;
             }
@@ -200,30 +201,38 @@ public class Deadlock {
             System.out.println("=========================");
             System.out.println("Valid Release.");
             System.out.println("=========================");
-           // System.out.println(currentAvailable[0]+"   "+currentAvailable[1]+"    "+currentAvailable[2]);
+            System.out.print("The Current Allocation of Process ( "+processRelease+" ) After Release is : ");
+            for(int i = 0 ;i<resourcesNum;i++){
+                System.out.print(allocation[processRelease][i]+" ");
+            }
+             System.out.println("                          ");
+            System.out.println("=========================");
         }             
         return b ;       
     }
     //////////////////////////////////////////////////
-    public boolean Recover(int [][]need,int [][]maximum,int [][]allocation,int []currentAvailable,boolean []finished){
+    // Recover
+    // First we Release The All Allocation of P0->P1->P2->etc
+    public void Recover(int [][]need,int [][]maximum,int [][]allocation,int []currentAvailable,boolean []finished){
         boolean b = false ;
+        int count = 0 ; 
         b = checkIsSafe(need,maximum,allocation,currentAvailable,finished);
-       int count = 0 ; 
-       while(!b && count<processNum){
-           int [] releaseResources = new int[resourcesNum];
+        // Recover is applied if the system is in the unsafe state
+        if (b==false){
+        while(!b && count<processNum){
+            int [] releaseResources = new int[resourcesNum];
             for(int i = 0;i<resourcesNum;i++){
                  releaseResources[i] = allocation[count][i];
-            } 
+            }
             b = RL(count,releaseResources,need,maximum,allocation,currentAvailable,finished);
             b = checkIsSafe(need,maximum,allocation,currentAvailable,finished);
-            //////////////////////
             if(b){
-                b = true; 
                 break ;      
             }else{
                 count++; 
             } 
-        }     
-       return b ; 
-    }    
+        }
+        }
+    }
+
 }
