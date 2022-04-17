@@ -1,5 +1,3 @@
-// Abdalla Fadl Shehata
-// 20190305
 package deadlock;
 import java.util.Scanner;
 
@@ -226,6 +224,7 @@ public class Deadlock {
             }
             b = RL(count,releaseResources,need,maximum,allocation,currentAvailable,finished);
             b = checkIsSafe(need,maximum,allocation,currentAvailable,finished);
+            calculateCurrentAvailable(processNum,resourcesNum,allocation,maxAvailable,currentAvailable);
             if(b){
                 break ;      
             }else{

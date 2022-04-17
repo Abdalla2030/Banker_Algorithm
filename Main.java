@@ -1,5 +1,3 @@
-// Abdalla Fadl Shehata
-// 20190305
 package deadlock;
 import java.util.Scanner;
 
