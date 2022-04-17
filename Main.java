@@ -57,7 +57,13 @@ public class Main{
               }
             }
             else if(s.toLowerCase().equals("recover")){
-                boolean bool = deadlock.Recover(deadlock.need,deadlock.maximum,deadlock.allocation,deadlock.currentAvailable,deadlock.finished);
+                if(checkInSafeState==false){
+                     deadlock.Recover(deadlock.need,deadlock.maximum,deadlock.allocation,deadlock.currentAvailable,deadlock.finished);
+                }else{
+                     System.out.println("=========================");
+                     System.out.println("Recover Is Applied Only IF The System In Unsafe State.");
+                     System.out.println("=========================");
+                }
             }
             else{
                 break; 
